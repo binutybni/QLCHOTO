@@ -11,6 +11,8 @@ public partial class MuonTraSanPham
 
     public int? IdNhaCungCap { get; set; }
 
+    public int? SoLuongMuon { get; set; }
+
     public int? NgayMuon { get; set; }
 
     public int? NgayTra { get; set; }

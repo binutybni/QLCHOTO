@@ -19,6 +19,10 @@ public partial class HoaDon
 
     public double? TienCong { get; set; }
 
+    public string? MotaTiencong { get; set; }
+
+    public double? TienTru { get; set; }
+
     public double? ThanhTien { get; set; }
 
     public int? TimeCre { get; set; }

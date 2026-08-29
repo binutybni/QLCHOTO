@@ -11,6 +11,8 @@ public partial class ChiTietHoaDon
 
     public int? IdSp { get; set; }
 
+    public double? TienSp { get; set; }
+
     public int? SoLuong { get; set; }
 
     public int? TimeCre { get; set; }

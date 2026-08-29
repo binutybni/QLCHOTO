@@ -13,6 +13,9 @@
         public double? TienCong { get; set; }
 
         public double? ThanhTien { get; set; }
+        public int? IdSp { get; set; }
+
+        public int? SoLuong { get; set; }
 
 
     }

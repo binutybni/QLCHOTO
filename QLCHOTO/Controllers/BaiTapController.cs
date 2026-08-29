@@ -62,27 +62,32 @@ namespace QLCHOTO.Controllers
         [Route("bài tập 2")]  // nếu mà bảng muon tra san pham vậy thì thiếu số lượng mượn
         public async Task<IActionResult> Baitap2()
         {
-            var sp = await db.SanPhams
+            var sp = await db.MuonTraSanPhams
                 .Select(x => new
                 {
                     x.IdSanPham,
-                    x.TenSp,
+                    x.IdNhaCungCapNavigation.TenNhaCungCap,
+                    x.NgayMuon,
+                    x.NgayTra,
+                    x.TrangThai
                 }).ToListAsync();
             var newlist = new List<object>();
             foreach (var item in sp)
             {
-                var sp2 = await db.MuonTraSanPhams
+                var sp2 = await db.SanPhams
                     .Where(x => x.IdSanPham == item.IdSanPham)
                     .Select(x => new
                     {
-                        x.IdNhaCungCapNavigation.TenNhaCungCap,
-                        x.NgayMuon,
-                        x.NgayTra,
-                        x.TrangThai
+                        x.MaSp,
+                        x.TenSp,
+                        x.MoTa
                     }).ToListAsync();
                 newlist.Add(new
                 {
-                    item.TenSp,
+                    item.TenNhaCungCap,
+                    item.NgayMuon,
+                    item.NgayTra,
+                    item.TrangThai,
                     sp2
                 });
             }
@@ -125,27 +130,29 @@ namespace QLCHOTO.Controllers
             await db.AddAsync(newhd);
             await db.SaveChangesAsync();
 
-            var ct = db.ChiTietHoaDons.AsQueryable();
-
-            foreach (var item in ct)
+            var ct = await db.ChiTietHoaDons.FirstOrDefaultAsync(x => x.IdSp == hd.IdSp);
+            if (ct == null)
             {
-                var sp = await db.SanPhams.FirstOrDefaultAsync(x => x.IdSanPham == item.IdSp);
-                if (sp == null)
-                {
-                    return Ok(new { msg = "không có sản phẩm này", success = false });
-                }
-
-                var sl = sp.SoLuong - item.SoLuong;
-
-                var newct = new ChiTietHoaDon
-                {
-                    IdHoaDon = newhd.IdHoaDon,
-                    IdSp = item.IdSp,
-                    SoLuong = sl
-                };
-                await db.AddAsync(newct);
-
+                return Ok(new { msg = "không có id sản phẩm đó", success = false });
             }
+
+            var sp = await db.SanPhams.FirstOrDefaultAsync(x => x.IdSanPham == hd.IdSp);
+            if (sp == null)
+            {
+                return Ok(new { msg = "không có sản phẩm này", success = false });
+            }
+
+            sp.SoLuong = sp.SoLuong - hd.SoLuong;
+
+            var newct = new ChiTietHoaDon
+            {
+                IdHoaDon = newhd.IdHoaDon,
+                IdSp = hd.IdSp,
+                SoLuong = hd.SoLuong
+            };
+            await db.AddAsync(newct);
+
+
             await db.SaveChangesAsync();
             return Ok(new { msg = "thêm mới hóa đơn thành công", success = true });
         }

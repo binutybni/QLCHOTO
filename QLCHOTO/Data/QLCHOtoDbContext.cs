@@ -72,6 +72,7 @@ public partial class QLCHOtoDbContext : DbContext
             entity.Property(e => e.IdChiTietHoaDon).HasColumnName("Id_chi_tiet_hoa_don");
             entity.Property(e => e.IdHoaDon).HasColumnName("Id_hoa_don");
             entity.Property(e => e.IdSp).HasColumnName("Id_SP");
+            entity.Property(e => e.TienSp).HasColumnName("TienSP");
             entity.Property(e => e.TimeCre).HasColumnName("Time_Cre");
             entity.Property(e => e.TimeUp).HasColumnName("Time_Up");
 
@@ -127,6 +128,8 @@ public partial class QLCHOtoDbContext : DbContext
             entity.Property(e => e.IdNhaCungCap).HasColumnName("Id_nha_cung_cap");
             entity.Property(e => e.IdNv).HasColumnName("Id_NV");
             entity.Property(e => e.MaHd).HasColumnName("MaHD");
+            entity.Property(e => e.MotaTiencong).HasColumnName("Mota_tiencong");
+            entity.Property(e => e.TienTru).HasColumnName("TIen_tru");
             entity.Property(e => e.TimeCre).HasColumnName("Time_Cre");
             entity.Property(e => e.TimeUp).HasColumnName("Time_Up");
 
