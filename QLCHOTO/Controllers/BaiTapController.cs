@@ -17,7 +17,7 @@ namespace QLCHOTO.Controllers
     {
         private readonly QLCHOtoDbContext db;
         private readonly int unixTimestamp;
-
+        
         public BaiTapController(QLCHOtoDbContext _db)
         {
             this.db = _db;
@@ -59,6 +59,7 @@ namespace QLCHOTO.Controllers
             }
             return Ok(newlist);
         }
+
 
         [HttpGet]
         [Route("bài tập 2")]  // nếu mà bảng muon tra san pham vậy thì thiếu số lượng mượn
