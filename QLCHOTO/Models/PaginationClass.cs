@@ -1,4 +1,4 @@
-﻿namespace QLCHOTO.Models.DTOs.QuanLyBaoHanh
+﻿namespace QLCHOTO.Models.DTOs
 {
     public class PaginationClass
     {

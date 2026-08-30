@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLCHOTO.Data;
 using QLCHOTO.Models;
+using QLCHOTO.Models.DTOs;
+using QLCHOTO.Models.DTOs.CapQuyenTK;
 using QLCHOTO.Models.DTOs.HoaDon;
 using QLCHOTO.Models.DTOs.QuanLyBaoHanh;
 using System.Text.Json;
