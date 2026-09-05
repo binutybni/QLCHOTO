@@ -11,7 +11,7 @@ public partial class NhanVien
 
     public string? TenNv { get; set; }
 
-    public string? ThamTien { get; set; }
+    public string? ThamNien { get; set; }
 
     public string? Sdt { get; set; }
 

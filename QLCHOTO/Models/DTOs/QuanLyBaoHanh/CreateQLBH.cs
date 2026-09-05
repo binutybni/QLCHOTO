@@ -10,10 +10,14 @@
 
         public string? SoBaoHanh { get; set; }
 
-        public string? NgayBaoHanh { get; set; }
+        public int? NgayBaoHanh { get; set; }
 
-        public string? NgayKetThucBaoHanh { get; set; }
+        public int? NgayKetThucBaoHanh { get; set; }
 
         public string? TrangThai { get; set; }
+
+        public string? TenKh { get; set; }
+
+        public string? Sdt { get; set; }
     }
 }

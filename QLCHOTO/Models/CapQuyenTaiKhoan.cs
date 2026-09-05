@@ -13,6 +13,10 @@ public partial class CapQuyenTaiKhoan
 
     public int? NgayCapQuyen { get; set; }
 
+    public int? TimeCre { get; set; }
+
+    public int? TimeUp { get; set; }
+
     public virtual LoaiTaiKhoan? IdLoaiTaiKhoanNavigation { get; set; }
 
     public virtual TaiKhoan? IdTaiKhoanNavigation { get; set; }

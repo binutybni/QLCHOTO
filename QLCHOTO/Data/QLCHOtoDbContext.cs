@@ -53,6 +53,8 @@ public partial class QLCHOtoDbContext : DbContext
             entity.Property(e => e.IdCapQuyenTk).HasColumnName("Id_cap_quyen_tk");
             entity.Property(e => e.IdLoaiTaiKhoan).HasColumnName("Id_loai_tai_khoan");
             entity.Property(e => e.IdTaiKhoan).HasColumnName("Id_tai_khoan");
+            entity.Property(e => e.TimeCre).HasColumnName("Time_Cre");
+            entity.Property(e => e.TimeUp).HasColumnName("TIme_Up");
 
             entity.HasOne(d => d.IdLoaiTaiKhoanNavigation).WithMany(p => p.CapQuyenTaiKhoans)
                 .HasForeignKey(d => d.IdLoaiTaiKhoan)
@@ -250,7 +252,7 @@ public partial class QLCHOtoDbContext : DbContext
             entity.Property(e => e.TenNv)
                 .HasMaxLength(50)
                 .HasColumnName("TenNV");
-            entity.Property(e => e.ThamTien).HasMaxLength(50);
+            entity.Property(e => e.ThamNien).HasMaxLength(50);
             entity.Property(e => e.TimeCre).HasColumnName("Time_Cre");
             entity.Property(e => e.TimeUp).HasColumnName("Time_Up");
             entity.Property(e => e.TrangThai).HasMaxLength(50);
@@ -280,8 +282,6 @@ public partial class QLCHOtoDbContext : DbContext
             entity.Property(e => e.IdKh).HasColumnName("Id_KH");
             entity.Property(e => e.IdNhaCungCap).HasColumnName("Id_nha_cung_cap");
             entity.Property(e => e.IdSp).HasColumnName("Id_SP");
-            entity.Property(e => e.NgayBaoHanh).HasMaxLength(50);
-            entity.Property(e => e.NgayKetThucBaoHanh).HasMaxLength(50);
             entity.Property(e => e.SoBaoHanh).HasMaxLength(50);
             entity.Property(e => e.TimeCre).HasColumnName("Time_Cre");
             entity.Property(e => e.TimeUp).HasColumnName("Time_Up");
